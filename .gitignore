@@ -1,0 +1,6 @@
+update_record
+RecFiles/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
