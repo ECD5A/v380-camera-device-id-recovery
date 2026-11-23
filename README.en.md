@@ -4,9 +4,11 @@
 
 ```text
 /*
- * V380 / V380 PRO  ::  DEVICE ID RECOVERY
- * camera -> FAT32 microSD -> local_update.conf -> update_record -> manual ID
- * tested: 1x 4G/LTE (ZXInfoTek ZX800-VG)  |  MIT  |  unofficial project
+ * V380 / V380 Pro - Device ID recovery through microSD.
+ * Copyright (c) 2026 ECD5A
+ * Licensed under the MIT License.
+ * https://github.com/ECD5A/v380-camera-device-id-recovery
+ * SPDX-License-Identifier: MIT
  */
 ```
 

@@ -1,19 +1,11 @@
 #!/usr/bin/env python3
-# Copyright (c) 2026 Vladimir Stelmak.
+# V380 / V380 Pro - Device ID recovery through microSD.
+# Copyright (c) 2026 ECD5A
+# Licensed under the MIT License.
+# https://github.com/ECD5A/v380-camera-device-id-recovery
 # SPDX-License-Identifier: MIT
-#
-# V380 Device ID Recovery
-# Pulls a V380 / V380 Pro camera Device ID out through a microSD card.
-#
-# Author: Vladimir Stelmak
-# GitHub: https://github.com/ECD5A
-#
-# Module: tools.rebuild_patch
-# Purpose: собирает патч из source/ и перепаковывает releases/microSD-files-only.zip.
-#
-# Если результат расходится с проверенным пакетом, скрипт ничего не пишет.
-#
 """Rebuild the archived V380 experimental patch deterministically (offline)."""
+
 from pathlib import Path
 import argparse
 import hashlib

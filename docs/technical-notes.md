@@ -1,3 +1,11 @@
+<!--
+  V380 / V380 Pro - Device ID recovery through microSD.
+  Copyright (c) 2026 ECD5A
+  Licensed under the MIT License.
+  https://github.com/ECD5A/v380-camera-device-id-recovery
+  SPDX-License-Identifier: MIT
+-->
+
 # Technical notes: how the local update works
 
 What is proven on the tested camera, and what is still a hypothesis.
