@@ -8,7 +8,7 @@
 
 Recover the **Device ID of a V380 / V380 Pro IP security camera** using a microSD card when the pairing QR sticker is missing or damaged. V380 Pro accepts manual Device ID entry. The QR code on the box may lead to the app download page.
 
-[Instructions](#instructions) · [Download the 3 files](releases/microSD-files-only.zip) · [Troubleshooting](docs/troubleshooting.md) · [Experiment log](docs/experiment-log.md) · [Technical notes](docs/technical-notes.md)
+[Instructions](#instructions) · [Download the 3 files](releases/microSD-files-only.zip) · [Troubleshooting](docs/troubleshooting.md) · [Experiment log](docs/experiment-log.md) · [Technical notes](docs/technical-notes.md) · [Support](#support)
 
 ## Quick start
 
@@ -102,13 +102,28 @@ python tools/test_tools.py       # offline rebuild compared with releases/microS
 
 If you test on your own equipment, share **only** redacted: connection type (4G/Wi-Fi/Ethernet), main board model if known, app version, whether `update_record` appeared, and whether the app accepted the ID. **Do not publish your ID, QR pairing payload, IMEI, serial numbers, SIM identifiers, MAC address, Wi-Fi credentials, photos of private scenes, or raw config dumps**.
 
-## References and credits
+## Support
 
-- [Macro-Video V380 FAQ](https://macro-video.com/en/support/support-faq/support-faq/v380/record-replay-1/page/19) — official manual entry of Device ID / camera connectivity.
-- [V380 Pro product manual (archived)](https://device.report/m/d4a99834043f682937aa0cb2fa2eb3b707e76b95e6faa61410a1cf194f5efba5) — separates *WiFi Smart Camera* and *4G Smart Camera*.
-- [bcaller/v380-ipcam-firmware-patch](https://github.com/bcaller/v380-ipcam-firmware-patch) — reverse-engineering the V380 patch mechanism and `exshell_bfu.sh`.
-- [Arkady23/V380-Web](https://github.com/Arkady23/V380-Web) — update-card folder layout and V380 model diversity.
+The project is free and maintained in spare time. If this guide helped you bring a camera back online and you want to support further experiments:
 
-The original experiment and verification in V380 Pro are by [ECD5A](https://github.com/ECD5A). The project’s original code and documentation are available under the [MIT License](LICENSE).
+- TON: `pointoncurve.ton`
+- Bitcoin (BTC): `1ECDSA1b4d5TcZHtqNpcxmY8pBH1GgHntN`
+- USDT (TRC20): `TUF4vPdB6QkjCvZq18rBL4Qj4dK5ihCN75`
 
-**Unofficial community project.** Not affiliated with or endorsed by V380, V380 Pro, Macro-Video or camera manufacturers. It does not contain proprietary firmware images.
+Donations do not change what gets published: results stay as they are, including failures. The only authoritative source for these addresses is this file in the main repository; forks and copies may contain substituted ones.
+
+## Contact
+
+Questions about recovery, reports for other models and pull requests:
+
+<p>
+  <a href="mailto:stelmak159@gmail.com" aria-label="Email"><img alt="Email" height="24" src="https://cdn.simpleicons.org/gmail/EA4335"></a>
+  &nbsp;
+  <a href="https://t.me/ECDS4" aria-label="Telegram"><img alt="Telegram" height="24" src="https://cdn.simpleicons.org/telegram/26A5E4"></a>
+  &nbsp;
+  <a href="https://github.com/ECD5A/v380-camera-device-id-recovery" aria-label="GitHub repository"><picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/github/FFFFFF"><img alt="GitHub repository" height="24" src="https://cdn.simpleicons.org/github/181717"></picture></a>
+</p>
+
+Keep personal data out of reports: no Device ID, IMEI, serial numbers, MAC address or recordings. Camera model, connection type and app version are enough.
+
+**Unofficial community project.** Not affiliated with or endorsed by V380, V380 Pro, Macro-Video or camera manufacturers. It does not contain proprietary firmware images. Project materials are under the [MIT License](LICENSE).

@@ -21,7 +21,7 @@ patchmd5=288032472d4d508105188fadf5a3ae8e
 
 The `.patch` MD5 is identical to the `patchmd5` value and its file stem. The header includes `V380E6_G1`. The patch contains a plaintext shell script named `exshell_bfu.sh`; **the embedded script's expected output was not observed on the tested camera**. The patch also has an **inferred**, not independently verified, 16-bit checksum field (byte sum modulo 65536). While the exact bytes yielded a successful `update_record` result on one camera, we do not claim a fully reverse-engineered patch format or a guaranteed harmless parser path.
 
-**Naming trap:** [bcaller's project](https://github.com/bcaller/v380-ipcam-firmware-patch) documents `localupdate.conf` in an example. [V380-Web](https://github.com/Arkady23/V380-Web) and the successful test used **`local_update.conf`** (with underscore). **Do not rename the file for this tested payload.**
+**Naming trap:** some V380 firmware variants look for `localupdate.conf`. This tested payload uses **`local_update.conf`** (with underscore). **Do not rename the file.**
 
 ## Likely execution model (not proven end-to-end)
 
@@ -62,10 +62,3 @@ was documented for **some other V380 firmware**. A file sitting on the card is n
 - `sdcard/patch_reuse` must stay a 0-byte file. An editor that adds text to it changes the verified payload layout.
 
 These operations run **on your own computer**, require only standard Python 3, and never connect to the camera or change its memory.
-
-## Primary technical references
-
-- https://github.com/bcaller/v380-ipcam-firmware-patch
-- https://github.com/Arkady23/V380-Web
-- https://macro-video.com/en/support/support-faq/support-faq/v380/record-replay-1/page/19
-- https://device.report/m/d4a99834043f682937aa0cb2fa2eb3b707e76b95e6faa61410a1cf194f5efba5

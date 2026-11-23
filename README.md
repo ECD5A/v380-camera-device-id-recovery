@@ -8,7 +8,7 @@
 
 Инструкция по восстановлению **Device ID IP-камеры V380 / V380 Pro** с помощью microSD, если наклейка с QR-кодом утеряна или повреждена. В V380 Pro идентификатор можно ввести вручную. QR-код на коробке может вести на страницу загрузки приложения.
 
-[Инструкция](#инструкция) · [Скачать 3 файла](releases/microSD-files-only.zip) · [Проблемы и решения](docs/troubleshooting.md) · [Журнал эксперимента](docs/experiment-log.md) · [Технический разбор](docs/technical-notes.md)
+[Инструкция](#инструкция) · [Скачать 3 файла](releases/microSD-files-only.zip) · [Проблемы и решения](docs/troubleshooting.md) · [Журнал эксперимента](docs/experiment-log.md) · [Технический разбор](docs/technical-notes.md) · [Поддержать](#поддержка-проекта)
 
 ## Коротко
 
@@ -92,13 +92,26 @@ python tools/test_tools.py       # офлайн-сборка и сверка с 
 
 **Не публикуйте** действительный Device ID, IMEI, серийный номер, содержимое заводского QR-кода, SIM-данные, MAC, пароль Wi-Fi и личные видео. Для сообщений об успешной или неуспешной проверке достаточно указать тип камеры, известную ревизию платы, версию приложения и наличие файла `update_record` без раскрытия его содержимого.
 
-## Источники и благодарности
+## Поддержка проекта
 
-- [Официальный FAQ Macro-Video](https://macro-video.com/en/support/support-faq/support-faq/v380/record-replay-1/page/19) — ввод ID вручную и подключение камер.
-- [Инструкция V380 Pro](https://device.report/m/d4a99834043f682937aa0cb2fa2eb3b707e76b95e6faa61410a1cf194f5efba5) — варианты *WiFi Smart Camera* и *4G Smart Camera*.
-- [bcaller/v380-ipcam-firmware-patch](https://github.com/bcaller/v380-ipcam-firmware-patch) — анализ пакетов обновления V380.
-- [Arkady23/V380-Web](https://github.com/Arkady23/V380-Web) — информация об установочных файлах на SD и различных платформах.
+Проект бесплатный и делается в свободное время. Если инструкция помогла вернуть камеру в строй и есть желание поддержать дальнейшие эксперименты:
 
-Эксперимент и проверку результата в V380 Pro провёл [ECD5A](https://github.com/ECD5A). Оригинальный код и документация проекта распространяются по [лицензии MIT](LICENSE).
+- TON: `pointoncurve.ton`
+- Bitcoin (BTC): `1ECDSA1b4d5TcZHtqNpcxmY8pBH1GgHntN`
+- USDT (TRC20): `TUF4vPdB6QkjCvZq18rBL4Qj4dK5ihCN75`
 
-**Независимый проект сообщества**, не официальный продукт V380 / Macro-Video. Оригинальные образы прошивки не распространяются.
+Поддержка не влияет на содержание проекта: результаты тестов публикуются как есть, включая неудачные. Единственный источник адресов — этот файл в основном репозитории; в форках и копиях они могут быть подменены.
+
+## Связь
+
+Вопросы по восстановлению, отчёты о других моделях и предложения правок:
+
+<p>
+  <a href="mailto:stelmak159@gmail.com" aria-label="Email"><img alt="Email" height="24" src="https://cdn.simpleicons.org/gmail/EA4335"></a>
+  &nbsp;
+  <a href="https://t.me/ECDS4" aria-label="Telegram"><img alt="Telegram" height="24" src="https://cdn.simpleicons.org/telegram/26A5E4"></a>
+  &nbsp;
+  <a href="https://github.com/ECD5A/v380-camera-device-id-recovery" aria-label="GitHub repository"><picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/github/FFFFFF"><img alt="GitHub repository" height="24" src="https://cdn.simpleicons.org/github/181717"></picture></a>
+</p>
+
+**Независимый проект сообщества**, не официальный продукт V380 / Macro-Video. Оригинальные образы прошивки не распространяются. Материалы проекта — по [лицензии MIT](LICENSE).
