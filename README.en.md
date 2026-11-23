@@ -2,16 +2,6 @@
 
 [Русский](README.md) · **English**
 
-```text
-/*
- * V380 / V380 Pro - Device ID recovery through microSD.
- * Copyright (c) 2026 ECD5A
- * Licensed under the MIT License.
- * https://github.com/ECD5A/v380-camera-device-id-recovery
- * SPDX-License-Identifier: MIT
- */
-```
-
 [![MIT License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 [![Tested on one 4G/LTE camera](https://img.shields.io/badge/4G_LTE-1%20camera-2E7D32)](MANIFEST.md)
 [![Payload check](https://github.com/ECD5A/v380-camera-device-id-recovery/actions/workflows/verify.yml/badge.svg)](https://github.com/ECD5A/v380-camera-device-id-recovery/actions/workflows/verify.yml)
@@ -19,6 +9,10 @@
 The QR sticker is gone and the app has nothing to pair with. This repo shows how to pull the **Device ID of a V380 / V380 Pro camera** out through microSD: the camera writes the ID to a file on the card, you type it into V380 Pro by hand. The QR on the box often leads to the app download page, not to pairing.
 
 [Quick start](#quick-start) · [Download the 3 files](releases/microSD-files-only.zip) · [Troubleshooting](docs/troubleshooting.md) · [Experiment log](docs/experiment-log.md) · [How it works](docs/technical-notes.md) · [Support](#support)
+
+![V380 box with a dual-lens camera and the WiFi Smart Net Camera label](docs/images/v380-camera-box.jpg)
+
+*Box from the tested camera. Photo: ECD5A.*
 
 ## Quick start
 
@@ -38,10 +32,6 @@ No `update_record`? Then your firmware ignores this package. Stop there and leav
 | Diagnostics | `V380_ID_RESULT/00_RESULT.txt` never appeared. Script execution is unconfirmed. |
 
 Other 4G/LTE, Wi-Fi and Ethernet cameras are untested. `V380E6_G1` sits in the patch header, but that is not a confirmed `Hwname`. Hashes and provenance: [MANIFEST.md](MANIFEST.md).
-
-![V380 box with a dual-lens camera and the WiFi Smart Net Camera label](docs/images/v380-camera-box.jpg)
-
-*Box from the tested camera. Photo: ECD5A.*
 
 The box says **"WiFi Smart Net Camera"** and **"Easy to achieve real-time remote viewing"**. The V380 Pro manual lists **WiFi Smart Camera** and **4G Smart Camera** as separate setups. [Packaging and wording](docs/technical-notes.md#packaging-and-wording)
 

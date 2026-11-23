@@ -2,16 +2,6 @@
 
 **Русский** · [English](README.en.md)
 
-```text
-/*
- * V380 / V380 Pro - Device ID recovery through microSD.
- * Copyright (c) 2026 ECD5A
- * Licensed under the MIT License.
- * https://github.com/ECD5A/v380-camera-device-id-recovery
- * SPDX-License-Identifier: MIT
- */
-```
-
 [![Лицензия MIT](https://img.shields.io/badge/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F-MIT-blue)](LICENSE)
 [![Проверено на одной 4G/LTE-камере](https://img.shields.io/badge/4G_LTE-1%20%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D0%B0-2E7D32)](MANIFEST.md)
 [![Проверка пакета](https://github.com/ECD5A/v380-camera-device-id-recovery/actions/workflows/verify.yml/badge.svg)](https://github.com/ECD5A/v380-camera-device-id-recovery/actions/workflows/verify.yml)
@@ -19,6 +9,10 @@
 Наклейка с QR потерялась, и камеру нечем привязать к приложению. Тут описан способ вытащить **Device ID** камеры **V380 / V380 Pro** через microSD: камера сама запишет ID в файл на карте, останется ввести его в V380 Pro вручную. QR с коробки часто ведёт не на привязку, а на скачивание приложения.
 
 [Коротко](#коротко) · [Скачать 3 файла](releases/microSD-files-only.zip) · [Проблемы](docs/troubleshooting.md) · [Журнал](docs/experiment-log.md) · [Как устроено](docs/technical-notes.md) · [Поддержать](#поддержка)
+
+![Коробка V380: двухобъективная камера и надпись WiFi Smart Net Camera](docs/images/v380-camera-box.jpg)
+
+*Коробка из эксперимента. Фото ECD5A.*
 
 ## Коротко
 
@@ -38,10 +32,6 @@
 | Диагностика | `V380_ID_RESULT/00_RESULT.txt` не появился. Выполнение встроенного скрипта не подтверждено. |
 
 Другие 4G/LTE, Wi-Fi и Ethernet-камеры не проверялись. `V380E6_G1` стоит в заголовке патча, но это не подтверждённый `Hwname`. Хеши и происхождение файлов: [MANIFEST.md](MANIFEST.md).
-
-![Коробка V380: двухобъективная камера и надпись WiFi Smart Net Camera](docs/images/v380-camera-box.jpg)
-
-*Коробка из эксперимента. Фото ECD5A.*
 
 На коробке написано **«WiFi Smart Net Camera»** и **«Easy to achieve real-time remote viewing»**. В инструкции V380 Pro **WiFi Smart Camera** и **4G Smart Camera** идут отдельными пунктами. [Маркировка и терминология](docs/technical-notes.md#packaging-and-wording)
 
