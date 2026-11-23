@@ -1,11 +1,3 @@
-<!--
-  V380 / V380 Pro - Device ID recovery through microSD.
-  Copyright (c) 2026 ECD5A
-  Licensed under the MIT License.
-  https://github.com/ECD5A/v380-camera-device-id-recovery
-  SPDX-License-Identifier: MIT
--->
-
 # Experiment log
 
 **Date:** 2026-11-23. **Hardware:** one V380 Pro 4G/LTE camera. Identifying values are withheld on purpose. This is a retro log of one unit, not a multi-device test.
