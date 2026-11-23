@@ -10,6 +10,15 @@ Recover the **Device ID of a V380 / V380 Pro IP security camera** using a microS
 
 [Instructions](#instructions) · [Download the 3 files](releases/microSD-files-only.zip) · [Troubleshooting](docs/troubleshooting.md) · [Experiment log](docs/experiment-log.md) · [Technical notes](docs/technical-notes.md)
 
+## Quick start
+
+1. Download [`microSD-files-only.zip`](releases/microSD-files-only.zip) and extract it **into the card root** (FAT32). There is no wrapper folder: the card must contain exactly `local_update.conf`, `patch_reuse` and the `updatepatch/` folder.
+2. Power the camera off, insert the card, power it on. Do not press Reset, and never cut power while the camera announces an update.
+3. After about 3 minutes power the camera off, take the card out and open `update_record` in Notepad. The `last_id=` line is the Device ID.
+4. In V380 Pro tap **+** → **Enter manually** and type the number.
+
+No `update_record`? Then your firmware does not process this package — stop experimenting on that camera.
+
 ## Test results
 
 | Item | Observation |
