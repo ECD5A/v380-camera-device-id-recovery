@@ -102,6 +102,10 @@ python tools/test_tools.py       # offline rebuild compared with releases/microS
 
 If you test on your own equipment, share **only** redacted: connection type (4G/Wi-Fi/Ethernet), main board model if known, app version, whether `update_record` appeared, and whether the app accepted the ID. **Do not publish your ID, QR pairing payload, IMEI, serial numbers, SIM identifiers, MAC address, Wi-Fi credentials, photos of private scenes, or raw config dumps**.
 
+## Project status
+
+**Unofficial community project.** Not affiliated with or endorsed by V380, V380 Pro, Macro-Video or camera manufacturers. It does not contain proprietary firmware images. Project materials are under the [MIT License](LICENSE).
+
 ## Support
 
 The project is free and maintained in spare time. If this guide helped you bring a camera back online and you want to support further experiments:
@@ -114,7 +118,7 @@ Donations do not change what gets published: results stay as they are, including
 
 ## Contact
 
-Questions about recovery, reports for other models and pull requests:
+Questions about recovery, reports for other models and pull requests. Keep personal data out of your report: no Device ID, IMEI, serial numbers, MAC address or recordings — camera model, connection type and app version are enough.
 
 <p>
   <a href="mailto:stelmak159@gmail.com" aria-label="Email"><img alt="Email" height="24" src="https://cdn.simpleicons.org/gmail/EA4335"></a>
@@ -123,7 +127,3 @@ Questions about recovery, reports for other models and pull requests:
   &nbsp;
   <a href="https://github.com/ECD5A/v380-camera-device-id-recovery" aria-label="GitHub repository"><picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/github/FFFFFF"><img alt="GitHub repository" height="24" src="https://cdn.simpleicons.org/github/181717"></picture></a>
 </p>
-
-Keep personal data out of reports: no Device ID, IMEI, serial numbers, MAC address or recordings. Camera model, connection type and app version are enough.
-
-**Unofficial community project.** Not affiliated with or endorsed by V380, V380 Pro, Macro-Video or camera manufacturers. It does not contain proprietary firmware images. Project materials are under the [MIT License](LICENSE).
