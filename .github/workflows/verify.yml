@@ -18,9 +18,5 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Check hashes, patch structure and release ZIP
-        run: python tools/verify_payload.py
-      - name: Rebuild the package and compare it with the published ZIP
-        run: python tools/test_tools.py
-      - name: Ensure patch_reuse stays a 0-byte file
-        run: test ! -s sdcard/patch_reuse
+      - name: Check hashes, patch structure, release ZIP and rebuild
+        run: python tools/check_payload.py

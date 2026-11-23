@@ -1,16 +1,15 @@
-# Contributing / Вклад в проект
+# Contributing
 
-Reports of **new confirmed camera models** are especially valuable. Please verify that the camera is yours and avoid publishing unique identifiers.
+Reports about **other camera models** are the most useful thing here. Make sure the camera is yours and keep unique identifiers out.
 
-Before opening a pull request, run the offline checks on your computer:
+Before a pull request, run:
 
 ```bash
-python tools/verify_payload.py
-python tools/test_tools.py
+python tools/check_payload.py
 ```
 
-The files in [`sdcard/`](sdcard/) must stay byte-identical to the verified payload — `patch_reuse` is intentionally a 0-byte file, so never open and save it in an editor.
+`patch_reuse` must stay a 0-byte file, and everything in [`sdcard/`](sdcard/) must stay byte-identical to the tested payload. If you never opened those files in an editor, they are fine.
 
-When opening an issue, share: V380 app name/version, Wi-Fi vs. 4G vs. Ethernet (if known), the **mainboard** model/firmware `Hwname` if actually observed, whether `update_record` appeared, and whether the **owner's** app accepted `last_id`. **Redact the ID**. Do not attach live-camera video, QR payloads, IMEIs, serial numbers, or internal configuration backups.
+In an issue write: app name and version, connection type (4G / Wi-Fi / Ethernet), mainboard or `Hwname` if you actually saw it, whether `update_record` appeared, and whether the app accepted the ID. **Mask the ID.** No camera video, QR payloads, IMEIs, serials or config backups.
 
-Clearly label your results **confirmed**, **partially confirmed**, or **untested**. Do not claim broad compatibility from package design or generic product names.
+Label your result **confirmed**, **partially confirmed** or **untested**. A generic "V380" box says nothing about compatibility.

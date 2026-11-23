@@ -4,7 +4,6 @@
 
 ## Как проверено / How it was verified
 
-- [ ] `python tools/verify_payload.py`
-- [ ] `python tools/test_tools.py`
+- [ ] `python tools/check_payload.py`
 - [ ] В правках нет Device ID, IMEI, серийных номеров, MAC и личных записей
 - [ ] Файлы в `sdcard/` не изменены (или изменение обосновано и проверено на камере)

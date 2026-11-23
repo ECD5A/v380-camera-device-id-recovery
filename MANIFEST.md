@@ -1,20 +1,19 @@
-# Release manifest and evidence level
+# Manifest: hashes and evidence level
 
-## Release scope
+## Scope
 
-- Project: **V380 / V380 Pro IP Security Camera — Device ID Recovery**
-- Initial case study: **2026-11-23**
-- Research and camera test: [ECD5A](https://github.com/ECD5A)
+- Project: **V380 / V380 Pro: Device ID recovery**
+- Case study: **2026-11-23**
+- Test and research: [ECD5A](https://github.com/ECD5A)
 - App: **V380 Pro**
-- Camera connectivity in successful case: **4G/LTE**
-- LTE module label: **ZXInfoTek ZX800-VG**
-- Mainboard SoC / full `Hwname`: **unknown**
-- Payload header string: **`V380E6_G1`** (not verified as tested mainboard identity)
-- Success reported: **`update_record` created, `last_id` accepted by the app, camera connected and worked**
+- Working camera: **4G/LTE**, LTE module **ZXInfoTek ZX800-VG**
+- Mainboard SoC and real `Hwname`: **unknown**
+- Patch header: **`V380E6_G1`** (not verified as the board identity)
+- Result: `update_record` created, `last_id` accepted by the app, camera connected
 - Shell diagnostic dump: **not observed**
-- Additional devices tested: **none confirmed**
+- Other devices tested: **none**
 
-## SD payload files (exact bytes, unchanged from successful attempt)
+## SD payload (byte-identical to the successful attempt)
 
 | Path | Size | SHA-256 |
 | --- | ---: | --- |
@@ -24,22 +23,24 @@
 
 Patch MD5: `288032472d4d508105188fadf5a3ae8e`
 
-## Downloadable archive
-
-`releases/microSD-files-only.zip` holds exactly the three files above and nothing else, so nobody has to browse the repository to build a card. The same archive is attached to the GitHub release.
+## Release archive
 
 | File | Size | SHA-256 |
 | --- | ---: | --- |
 | `releases/microSD-files-only.zip` | 1215 | `53c29d2c678efc5f74e814bb8743c7f853bd50b90c88f630c0831ef007b0c18d` |
 
-The archive is reproducible: `python tools/rebuild_patch.py` packs fixed timestamps, `python tools/verify_payload.py` fails if the ZIP stops matching `sdcard/`, and CI runs both checks on every push.
+The archive holds the three files above and nothing else. Same bytes are attached to the GitHub release.
 
-**Audit:** the patch is byte-identical to the patch recovered from the successful SD card's archive; the observed camera-generated `update_record` was **not bundled** with the files. An embedded script attempts a read-only configuration export, but its execution was not established.
+Reproducible: `python tools/rebuild_patch.py` writes fixed timestamps, and `python tools/check_payload.py` fails if the hashes, the ZIP or the rebuilt patch stop matching `sdcard/` and `source/`. CI runs the same check on every push.
 
-## Provenance / no personal identifiers
+## Audit notes
 
-The public repository deliberately **does not include** the camera's actual `last_id`, IMEI, original SD-card images/video, manufacturing serial/QR data, the owner’s private email, or an unredacted diagnostic dump. Public examples use made-up digits.
+The patch is byte-identical to the one recovered from the successful card snapshot. The camera-generated `update_record` was **not** bundled with the files. The embedded script attempts a read-only settings export; its execution was never observed.
 
-## Independent tools and licensing
+## No personal identifiers
 
-The helper Python code, the documented experimental script, and documentation in this repository are provided under MIT. Linked third-party resources are used for explanation and are **not** copied or relicensed here. The binary `.patch` is a generated experimental package, **not a complete commercial firmware image**.
+The repository does not include the real `last_id`, IMEI, original card images or video, serial or QR data, the owner's email, or an unredacted dump. Examples use made-up digits.
+
+## Licensing
+
+Helper scripts, the documented script and all text are MIT. The `.patch` is a small generated experimental package, not a firmware image.

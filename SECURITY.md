@@ -1,7 +1,7 @@
-# Safety, security and disclosure
+# Safety and disclosure
 
-The repository is for **repair/recovery on cameras you own or are authorized to service**. A unique camera Device ID is potentially sensitive: never post it publicly. Keep any discovered secrets, SIM data and recordings private.
+Use this on cameras you own or are allowed to service. A Device ID belongs to one camera: don't publish it. Keep discovered secrets, SIM data and recordings private.
 
-Do **not** test arbitrary firmware images or patches from strangers. The published package is **experimental** and may harm incompatible cameras. Do not expose diagnostic network services to the public Internet.
+Don't flash patches from strangers. The published package is **experimental** and can damage an incompatible camera. Don't expose camera services to the internet.
 
-If you discover the patch changes more than expected, please report the technical behavior **without including private IDs or credentials**.
+If the patch does more than expected, describe the behaviour without private IDs or credentials.

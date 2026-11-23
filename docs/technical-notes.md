@@ -1,8 +1,8 @@
-# Technical notes: V380 local-update probe
+# Technical notes: how the local update works
 
-This document distinguishes **actual test evidence** from **firmware-mechanism hypotheses**.
+What is proven on the tested camera, and what is still a hypothesis.
 
-## Confirmed artifact layout
+## Confirmed layout
 
 ```text
 /sdcard/
@@ -12,53 +12,55 @@ This document distinguishes **actual test evidence** from **firmware-mechanism h
     288032472d4d508105188fadf5a3ae8e.patch
 ```
 
-`local_update.conf` contents:
+`local_update.conf`:
 
 ```ini
 [PATCH]
 patchmd5=288032472d4d508105188fadf5a3ae8e
 ```
 
-The `.patch` MD5 is identical to the `patchmd5` value and its file stem. The header includes `V380E6_G1`. The patch contains a plaintext shell script named `exshell_bfu.sh`; **the embedded script's expected output was not observed on the tested camera**. The patch also has an **inferred**, not independently verified, 16-bit checksum field (byte sum modulo 65536). While the exact bytes yielded a successful `update_record` result on one camera, we do not claim a fully reverse-engineered patch format or a guaranteed harmless parser path.
+The MD5 matches the file stem and the `patchmd5` value. The header carries `V380E6_G1`. Inside the patch: a header, one entry record and a plaintext shell script `exshell_bfu.sh`. The 16-bit checksum field is **inferred** (byte sum modulo 65536), not confirmed by disassembly. These exact bytes produced `update_record` on one camera; the format is not fully reverse engineered.
 
-**Naming trap:** some V380 firmware variants look for `localupdate.conf`. This tested payload uses **`local_update.conf`** (with underscore). **Do not rename the file.**
+**Naming trap:** some V380 firmware looks for `localupdate.conf`. This payload uses `local_update.conf` with an underscore. Do not rename it.
 
-## Likely execution model (not proven end-to-end)
+## Likely execution path (not proven end to end)
 
-1. The camera boots with a FAT32 microSD card.
-2. A firmware-specific update handler examines `local_update.conf` and possibly `patch_reuse`.
-3. The handler may validate the patch filename / MD5 and parse its model-specific header.
-4. The handler may record patch status/ID by creating `update_record` and might run a pre-update script (`exshell_bfu.sh`).
-5. On this camera, `update_record` was created and `last_id` was accepted by V380 Pro. The diagnostic script's separate output was **absent**.
+1. The camera boots with a FAT32 card.
+2. The update handler reads `local_update.conf`, and possibly `patch_reuse`.
+3. It may check the patch name or MD5 and parse the model header.
+4. It may write `update_record` and run the pre-update script.
+5. On the tested camera `update_record` appeared; the script output did not.
 
-Therefore, **do not claim that the embedded script recovered the ID**. The supported claim is **the local-update trigger caused the camera to create `update_record`, which exposed an app-accepted Device ID**.
+So the supported claim is: **the local-update trigger made the camera write `update_record`, and the `last_id` inside was accepted by the app**. Not: "the script extracted the ID".
 
-## Why the first microSD experiment was not sufficient
+## Packaging and wording
 
-The previously tried directory structure:
+- **WiFi Smart Net Camera** - generic box wording, not a model number.
+- **Easy to achieve real-time remote viewing** - a marketing slogan.
+- **4G Smart Camera** and **WiFi Smart Camera** - separate setup categories in the V380 Pro manual; one camera does not necessarily have both radios.
+- A "V380" sticker says nothing about the board, firmware or updater inside.
 
-```text
-AutoTestFile/release/autotest_init.sh
-```
+Do not call this tool universal or official firmware.
 
-was documented for **some other V380 firmware**. A file sitting on the card is not enough; the camera must have a matching startup hook and permission to execute it. The user observed only normal video recording (`RecFiles/`). On this one camera, the hook did not yield a result.
+## Why the first card experiment failed
 
-## Security limitations
+`AutoTestFile/release/autotest_init.sh` came from other V380 firmware. A file on the card is not enough: the firmware needs a matching hook and permission to run it. The camera only recorded video into `RecFiles/`.
 
-- This is an **update-system** experiment, not a factory-authorized export feature.
-- A package without kernel images is **not automatically safe**. The updater can still update metadata, write flash or reboot, depending on firmware.
-- Never use the sample device identifiers from other people's issue reports. All numbers used in tutorials are fictional.
-- The payload's `V380E6_G1` header is **not confirmed** as the actual board's `Hwname`.
-- Reading ID is **not** the same as repairing 4G SIM detection or establishing an Ethernet link.
+## Security limits
 
-## Script for auditing
+- This uses the update system, not a vendor export feature.
+- A package without kernel images is not automatically safe: the updater can still rewrite metadata, flash or reboot.
+- Never reuse IDs from other people's reports. Every number in the docs is fictional.
+- The `V380E6_G1` header is not confirmed as this board's `Hwname`.
+- Reading the ID does not fix 4G SIM detection or a dead Ethernet link.
 
-[`source/exshell_bfu.sh`](../source/exshell_bfu.sh) is exactly the script embedded inside the binary test patch. It attempts to read Linux settings and write a summary to `V380_ID_RESULT/00_RESULT.txt` on microSD. That output was **not found**. Its presence in the patch is useful for transparency, but copying this `.sh` to the root of microSD **does not execute it**.
+## The embedded script
 
-## Independently reproducing the package
+[`source/exshell_bfu.sh`](../source/exshell_bfu.sh) is the exact script inside the patch. It tries to read Linux settings and write `V380_ID_RESULT/00_RESULT.txt` to the card. That file never appeared. Copying the `.sh` to the card root does not run it.
 
-- Run `python tools/verify_payload.py` to check the included files, the known MD5, SHA-256, header, embedded script, and that `releases/microSD-files-only.zip` matches `sdcard/`.
-- Run `python tools/rebuild_patch.py` to reconstruct the binary package from the checked-in source and repack `releases/microSD-files-only.zip`. It must match the published `.patch` byte for byte.
-- `sdcard/patch_reuse` must stay a 0-byte file. An editor that adds text to it changes the verified payload layout.
+## Reproducing the package
 
-These operations run **on your own computer**, require only standard Python 3, and never connect to the camera or change its memory.
+- `python tools/check_payload.py` - hashes, patch structure, release ZIP, plus a rebuild compared byte for byte.
+- `python tools/rebuild_patch.py` - rebuilds the patch from `source/` and repacks `releases/microSD-files-only.zip`.
+
+Both run locally, need only Python 3 and never touch a camera.

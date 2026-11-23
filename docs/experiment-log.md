@@ -1,44 +1,40 @@
-# Experiment log / Журнал экспериментов
+# Experiment log
 
-**Observed on:** 2026-11-23, one V380 Pro **4G/LTE security camera**. Identifying values have been deliberately withheld. This is a retrospective log, **not** a claim of multi-device validation.
+**Date:** 2026-11-23. **Hardware:** one V380 Pro 4G/LTE camera. Identifying values are withheld on purpose. This is a retro log of one unit, not a multi-device test.
 
 | Stage | Observation | Result |
 | --- | --- | --- |
-| Initial setup | Camera pairing label / unique QR absent. Box QR opens app download. | Could not initially add the camera. |
-| Identification | LTE module labelled **ZXInfoTek ZX800-VG**; other board/holder manufacturing markings present. | LTE model identified; mainboard hardware ID remained unknown. |
-| Mobile networking | Camera spoke about cellular-network connection but then reported no SIM detected. | Network connectivity problem remained independent of ID recovery. |
-| Wired networking | Router Ethernet link LED did not indicate a connection with camera, although router/cable worked with other devices. | No Ethernet link, so UDP/LAN scanner could not be used. |
-| First microSD trial | `AutoTestFile/release/autotest_init.sh` copied to FAT32 card. | Camera recorded AVI video; `v380-id-result.txt` not created. Autotest execution **not demonstrated**. |
-| Follow-up card snapshot | `RecFiles/record.ini` and AVI/.idx files appeared. | Confirmed SD read/write only, **not** remote access or script execution. |
-| Read-only dump concept | A separate shell script was prepared to read settings. | **Never confirmed to execute** on camera; no dump file recovered. |
-| Local patch experiment | Three-file update package, exactly as shipped in `sdcard/`, on card; camera booted with it. | New **`update_record`** appeared. No `V380_ID_RESULT/00_RESULT.txt`. |
-| App verification | The value read from `update_record` as `last_id` was entered in V380 Pro. | **User confirmed that the number was accepted.** |
+| Start | Pairing sticker with the unique QR missing. The QR on the box opens the app download. | Camera could not be added. |
+| Identification | LTE module labelled **ZXInfoTek ZX800-VG**, other manufacturing markings on the board and holder. | LTE module known, board ID unknown. |
+| Cellular | Camera announced a network connection, then reported no SIM. | Separate problem, not solved by this method. |
+| Ethernet | Router link LED never came up, while router and cable worked with other devices. | No link, so LAN scanning was pointless. |
+| First card try | `AutoTestFile/release/autotest_init.sh` on a FAT32 card. | Camera recorded AVI video; `v380-id-result.txt` never appeared. |
+| Card snapshot | `RecFiles/record.ini` plus AVI and .idx files. | Confirms read/write only, not code execution. |
+| Read-only dump | A separate shell script prepared to dump settings. | Never observed running; no dump recovered. |
+| Local patch | The three files in [`sdcard/`](../sdcard/) on the card, camera booted with it. | `update_record` appeared. No `V380_ID_RESULT/00_RESULT.txt`. |
+| App check | `last_id` read from `update_record`, typed into V380 Pro. | **Owner confirmed the number was accepted.** |
 
-## What the camera actually wrote
+## What the camera wrote
 
 ```ini
 [PATCH]
-last_id=<redacted device-specific digits>
+last_id=<redacted>
 ```
 
-This file **was not included in the original SD payload**, and the final number was **not present in the payload**. That is stronger evidence that the ID originated from the camera/update process rather than being hardcoded. It does not prove which internal file supplied it. Do not conflate this with `record.ini` from the AVI recorder.
+This file was **not** in the payload, and the number was **not** in the payload either. The ID came from the camera, not from the files. Which internal file supplied it is still unknown. Do not confuse this with `record.ini`, which belongs to the video recorder.
 
-## What did **not** work
+## What did not work
 
-- The first `AutoTestFile` startup-script probe did not create its expected result.
-- The Ethernet cable did not establish a physical link to the router. No successful network scan is reported.
-- The camera was still reporting a SIM-card detection problem; this project is **not** a solution for the cellular-network fault.
-- Neither UART reading nor SPI Flash programming was performed or shown necessary.
-- No complete QR payload was recovered; numeric Device ID was sufficient in the observed app flow.
+- The `AutoTestFile` startup script produced nothing.
+- The Ethernet cable never linked up, so no network scan is reported.
+- The camera still complained about the SIM. This project does not fix that.
+- No UART access and no SPI flashing were needed or attempted.
+- The full QR payload was never recovered. The numeric ID was enough for this app flow.
 
-## Untested assumptions
+## Untested
 
-- Firmware compatibility across other V380/Pro cameras.
-- A genuinely functioning `exshell_bfu.sh` script execution (rather than only the updater's bookkeeping).
-- Identification of exact mainboard SoC, bootloader and firmware version.
-- How update handler validates `patch_reuse`, inner checksum and hardware identifier.
-- Whether additional startup scripts or other patch layouts work on this model.
-
-## Release integrity
-
-The file `updatepatch/288032472d4d508105188fadf5a3ae8e.patch` in the successful SD snapshot matched the previously prepared package **byte for byte**; this repository preserves it unmodified. See `MANIFEST.md` for checksums.
+- Firmware compatibility with other V380 and V380 Pro cameras.
+- Real execution of `exshell_bfu.sh` instead of just updater bookkeeping.
+- The exact SoC, bootloader and firmware version.
+- How the handler validates `patch_reuse`, the inner checksum and the hardware ID.
+- Whether other startup scripts or payload layouts work on this unit.
