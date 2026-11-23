@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Проблемы и решения / Troubleshooting
+    url: https://github.com/ECD5A/v380-camera-device-id-recovery/blob/main/docs/troubleshooting.md
+    about: Сначала проверьте типовые ситуации — возможно, ответ уже есть.
+  - name: Технический разбор / Technical notes
+    url: https://github.com/ECD5A/v380-camera-device-id-recovery/blob/main/docs/technical-notes.md
+    about: Что именно происходит с пакетом и какие выводы подтверждены.

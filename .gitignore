@@ -1,6 +1,20 @@
+# Never accidentally commit personal camera data or test captures
 update_record
+**/update_record
 RecFiles/
+**/RecFiles/
+V380_ID_RESULT/
+**/V380_ID_RESULT/
+*.avi
+*.avi.idx
+*.mp4
+*.dump
+*.bin
+*.mtd
+*.raw
+*.log
 __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+.env

@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Verified payload and binary artifacts must never be converted
+sdcard/local_update.conf -text
+sdcard/patch_reuse -text
+*.patch binary
+*.zip binary
+*.jpg binary
