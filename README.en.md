@@ -106,7 +106,7 @@ It checks SHA-256 of the three files, the patch MD5 and header, the contents of 
 
 ## Project status
 
-**Unofficial project.** Not associated with V380, V380 Pro or Macro-Video. No firmware images here. Code and text are [MIT](LICENSE).
+**Unofficial project.** Not associated with V380, V380 Pro or Macro-Video. No firmware images here.
 
 ## Support
 

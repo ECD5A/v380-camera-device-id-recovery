@@ -1,7 +1,7 @@
 # V380 / V380 Pro - Device ID recovery through microSD.
 # Copyright (c) 2026 ECD5A | MIT | https://github.com/ECD5A/v380-camera-device-id-recovery
-# Личные данные камеры и записи в репозиторий не попадают.
 
+# Camera output and personal data
 update_record
 **/update_record
 RecFiles/
@@ -15,6 +15,8 @@ V380_ID_RESULT/
 *.bin
 *.mtd
 *.raw
+
+# Local noise
 *.log
 __pycache__/
 *.pyc

@@ -1,10 +1,8 @@
 # V380 / V380 Pro - Device ID recovery through microSD.
 # Copyright (c) 2026 ECD5A | MIT | https://github.com/ECD5A/v380-camera-device-id-recovery
-# Байты пакета неприкосновенны: никакой нормализации переводов строк.
 
+# Payload bytes stay byte-exact: no line ending or encoding conversion.
 * text=auto eol=lf
-
-# Verified payload and binary artifacts must never be converted
 sdcard/local_update.conf -text
 sdcard/patch_reuse -text
 *.patch binary
