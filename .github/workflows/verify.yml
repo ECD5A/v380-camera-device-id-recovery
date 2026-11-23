@@ -1,3 +1,15 @@
+# Copyright (c) 2026 Vladimir Stelmak.
+# SPDX-License-Identifier: MIT
+#
+# V380 Device ID Recovery
+# Pulls a V380 / V380 Pro camera Device ID out through a microSD card.
+#
+# Author: Vladimir Stelmak
+# GitHub: https://github.com/ECD5A
+#
+# Module: .github/workflows/verify
+# Purpose: на каждый push проверяет пакет, патч, релизный ZIP и пересборку.
+
 name: verify
 
 on:

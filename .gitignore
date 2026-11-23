@@ -1,3 +1,6 @@
+# V380 Device ID Recovery
+# Что не должно попасть в репозиторий: личные данные камеры и записи.
+
 # Never accidentally commit personal camera data or test captures
 update_record
 **/update_record

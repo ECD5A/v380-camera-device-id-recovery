@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Vladimir Stelmak.
+# SPDX-License-Identifier: MIT
+#
+# V380 Device ID Recovery
+# Pulls a V380 / V380 Pro camera Device ID out through a microSD card.
+#
+# Author: Vladimir Stelmak
+# GitHub: https://github.com/ECD5A
+#
+# Module: tools.check_payload
+# Purpose: проверяет хеши пакета, структуру патча, релизный ZIP и пересборку.
+#
+# Сам пакет только читается: ни один файл карты здесь не перезаписывается.
+#
 """Offline payload check: hashes, patch structure, release ZIP and rebuild equality."""
 import hashlib
 import struct

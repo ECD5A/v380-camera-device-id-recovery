@@ -2,6 +2,14 @@
 
 [Русский](README.md) · **English**
 
+```text
+/*
+ * V380 / V380 PRO  ::  DEVICE ID RECOVERY
+ * camera -> FAT32 microSD -> local_update.conf -> update_record -> manual ID
+ * tested: 1x 4G/LTE (ZXInfoTek ZX800-VG)  |  MIT  |  unofficial project
+ */
+```
+
 [![MIT License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 [![Tested on one 4G/LTE camera](https://img.shields.io/badge/4G_LTE-1%20camera-2E7D32)](MANIFEST.md)
 [![Payload check](https://github.com/ECD5A/v380-camera-device-id-recovery/actions/workflows/verify.yml/badge.svg)](https://github.com/ECD5A/v380-camera-device-id-recovery/actions/workflows/verify.yml)

@@ -1,3 +1,6 @@
+# V380 Device ID Recovery
+# Байты пакета неприкосновенны: никакой нормализации переводов строк.
+
 * text=auto eol=lf
 
 # Verified payload and binary artifacts must never be converted
